@@ -1,0 +1,19 @@
+.footer {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: darkgrey;
+    /* position: absolute; */
+    /* bottom: 0; */
+    width: 100%;
+}
+.footer .title {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+@media (max-width: 1000px) {
+    .footer {
+        width: 100%;
+    }
+}

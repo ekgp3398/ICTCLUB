@@ -1,0 +1,25 @@
+.TableHeader {
+    text-align: justify;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.HeaderTitle {
+    font-weight: bold;
+}
+/* 
+.notice_main .TableHeader .HeaderTitle {
+    font-size: 25px;
+} */
+
+.notice_main {
+    width: 100%
+}
+
+.major_main {
+    width: 30%
+}
+
+.title_main {
+    width:  70%
+}

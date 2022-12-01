@@ -1,0 +1,76 @@
+.board_write {
+    border-top: 2px solid #000;
+    
+}
+
+.board_write .title {
+    padding:15px;
+    border-bottom: 1px solid #000;
+    font-size: 0;
+    display: block;
+}
+
+.board_write .title dt,
+.board_write .title dd {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0.8rem;
+}
+
+.board_write .title dt {
+    width: 100px;
+}
+
+.board_write .title dd {
+    width: calc(100% - 100px)
+}
+
+.board_write .title input {
+    width: 80%;
+    padding: 10px;
+}
+
+.board_write .cont {
+    border-bottom: 1px solid #000;
+}
+
+.board_write .cont textarea {
+    display: block;
+    width: 100%;
+    height: 300px;
+    padding: 15px;
+    box-sizing: border-box;
+    border: 0;
+    resize: vertical;
+}
+
+@media (max-width: 1000px) {
+    .board_wrap {
+        width: 100%;
+        min-width: 320px;
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+    
+    .board_write .info dl {
+        width: 49%;
+    }
+
+    .board_write .info dl:first-child {
+        margin-right: 2%;
+    }
+
+    .board_write .title dt,
+    .board_write .info dt {
+        display: none;
+    }
+
+    .board_write .title dd,
+    .board_write .info dd {
+        width: 100%;
+    }
+
+    .board_write .title input{
+        width: 100%;
+    }
+}

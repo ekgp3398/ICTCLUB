@@ -1,0 +1,12 @@
+.prev {
+    margin-right: 10px !important;
+    margin-bottom: 5px;
+}
+
+.next {
+    margin-bottom: 5px;
+}
+
+.btn_container .HeaderTitle {
+    font-size: 21px;
+}

@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.board_title {
+    margin-bottom: 30px;
+}
+
+.board_title {
+    font-size: 3rem;
+}
+.board_title p {
+    margin-top: 5px;
+    font-size: 1.4rem;
+}
+
+.board_schedule_wrap {
+    width: 100%;
+    display: inline-flex;
+}
+
+.board_schedule_wrap .calender {
+    width: 40%;
+}
+
+.board_schedule_wrap .schedule_list {
+    width: 60%;
+    margin-left: 20px;
+    border-top: 2px solid #000;
+}
+
+.schedule_list .date {
+    width: 35%
+}
+
+.schedule .content {
+    width: 65%
+}
+
+@media (max-width: 1000px) {
+    .board_wrap {
+        width: 100%;
+        min-width: 320px;
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+
+    .board_schedule_wrap {
+        width: 100%;
+        display: block;
+    }
+
+    .board_schedule_wrap .calender {
+        width: 100%;
+        
+    }
+
+    .board_schedule_wrap .schedule_list {
+        margin-top: 20px;
+        margin-left: 0;
+        width: 100%;
+        border-top: 2px solid #000;
+    }
+
+    .board_list .top .title {
+        text-indent: 0;
+    }
+} 

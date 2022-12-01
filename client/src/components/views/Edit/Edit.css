@@ -1,0 +1,32 @@
+@media (max-width: 1000px) {
+    .board_wrap {
+        width: 100%;
+        min-width: 320px;
+        padding: 0 30px;
+        box-sizing: border-box;
+    }
+
+    .board_write .info dl {
+        width: 49%;
+    }
+
+    .board_write .info dl:first-child {
+        margin-right: 2%;
+    }
+
+    .board_write .title dt,
+    .board_write .info dt {
+        display: none;
+    }
+
+    .board_write .title dd,
+    .board_write .info dd {
+        width: 100%;
+    }
+
+    .board_write .title input[type="text"],
+    .board_write .info input[type="text"],
+    .board_write .info input[type="password"] {
+        width: 100%;
+    }
+}

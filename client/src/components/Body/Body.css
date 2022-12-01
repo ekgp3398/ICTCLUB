@@ -1,0 +1,11 @@
+.Body {
+    z-index: 0;
+   
+}
+.layout {
+    width: 80%;
+    min-height: 100vh;
+    margin: 100px auto;
+    padding: 0 auto;
+    /* background-color: antiquewhite; */
+}
