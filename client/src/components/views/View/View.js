@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
-import { commentPost } from "C:/Users/dahye/Study/Project/ICTCLUB/client/src/_action/user_action.js";
+import { commentPost } from '../../../_action/user_action';
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";

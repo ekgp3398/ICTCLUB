@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import React, { useState } from 'react'
-import { noticePost } from 'C:/Users/dahye/Study/Project/ICTCLUB/client/src/_action/user_action.js';
+import { noticePost } from '../../../_action/user_action';
 import { useNavigate, useParams } from 'react-router-dom';
 import {useDispatch} from 'react-redux'
 import './Post.css'

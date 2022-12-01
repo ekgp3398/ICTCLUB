@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {useDispatch} from 'react-redux'
-import { loginUser } from 'C:/Users/dahye/Study/Project/ICTCLUB/client/src/_action/user_action.js';
+import { loginUser } from '../../../_action/user_action';
 import Auth from "../../../hoc/auth"
 
 const LoginPage = (props) => {  
