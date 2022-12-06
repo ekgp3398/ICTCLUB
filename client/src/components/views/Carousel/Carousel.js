@@ -156,7 +156,7 @@ export default function Carousel() {
             <h4>{card.title}</h4>
             <p>{card.description}</p>
             <a href = {card.clubSrc} target = "_blank">
-              <img src={card.imageSrc} width="230" />
+              <img src={card.imageSrc} className = "slider_img" />
             </a>
           </div>
         ))}
