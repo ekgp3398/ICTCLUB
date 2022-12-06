@@ -17,10 +17,10 @@ class MainPage extends Component {
             <br />
             <br />
             <div className = "row">
-              <div className = "col">
+              <div className = "col-sm-12 col-md-6 col-lg-6">
                 <Notice/>
               </div>
-              <div className = "col">
+              <div className = "col-sm-12 col-md-6 col-lg-6">
                 <Schedule />
               </div>
             </div>
