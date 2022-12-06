@@ -1,0 +1,4 @@
+[[redirects]]
+from = "src/"
+to = "App.js"
+status = 200
