@@ -3,24 +3,25 @@ import { Table } from "react-bootstrap";
 import axios from "axios";
 import Pagination from "../Board/Pagination";
 import Loader from "../Loader/Loader";
+import NoticeApi from '../../api/Notice.json';
 import "./Notice.css";
 
 const Notice = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const [limit, setLimit] = useState(5);
   const [page, setPage] = useState(1);
   const offset = (page - 1) * limit;
 
-  useEffect(() => {
-    setLoading(true);
-    axios.get(`/api/boards/notice`).then((response) => {
-      console.log(response.data);
-      let copy = [...posts, ...response.data.posts];
-      setPosts(copy);
-      setLoading(false);
-    });
-  }, []);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   axios.get(`/api/boards/notice`).then((response) => {
+  //     console.log(response.data);
+  //     let copy = [...posts, ...response.data.posts];
+  //     setPosts(copy);
+  //     setLoading(false);
+  //   });
+  // }, []);
 
   return (
     <>
@@ -46,9 +47,9 @@ const Notice = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {posts.slice(offset, offset + limit).map((item, index) => (
+                    {NoticeApi.slice(offset, offset + limit).map((item, index) => (
                       <tr key={index}>
-                        <td className="num">{posts.length - index - offset}</td>
+                        <td className="num">{NoticeApi.length - index - offset}</td>
                         <td
                           className="title"
                           onClick={() => window.open("https://" + item.link)}
