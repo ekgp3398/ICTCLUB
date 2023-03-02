@@ -301,69 +301,69 @@ async function getOne(page, index) {
     return Promise.resolve(data);
 }
 
-// //학사일정 크롤링
-// app.get("/api/boards/schedule", async function(req, res){
-//     const schedule = await crwalSchdule();
-//     res.send(schedule);
-// })
+//학사일정 크롤링
+app.get("/api/boards/schedule", async function(req, res){
+    const schedule = await crwalSchdule();
+    res.send(schedule);
+})
 
-// async function crwalSchdule() {
+async function crwalSchdule() {
 
-//     // headless browser start
-//     const browser = await puppeteer.launch({
-//         headless: false
-//     })
+    // headless browser start
+    const browser = await puppeteer.launch({
+        headless: false
+    })
 
-//     // open new page
-//     const page = await browser.newPage()
+    // open new page
+    const page = await browser.newPage()
 
-//     await page.setDefaultNavigationTimeout(0); 
+    await page.setDefaultNavigationTimeout(0); 
 
-//     // connect web link
-//     await page.goto(
-//         'https://web.kangnam.ac.kr/menu/02be162adc07170ec7ee034097d627e9.do', {
-//             waitUntil: 'load'
-//     })
+    // connect web link
+    await page.goto(
+        'https://web.kangnam.ac.kr/menu/02be162adc07170ec7ee034097d627e9.do', {
+            waitUntil: 'load'
+    })
 
-//     await page.goto(
-//         'https://web.kangnam.ac.kr/menu/02be162adc07170ec7ee034097d627e9.do')
+    // await page.goto(
+    //     'https://web.kangnam.ac.kr/menu/02be162adc07170ec7ee034097d627e9.do')
 
-//     let data = [];
+    let data = [];
 
-//     for(let month = 1; month <= 12; month++){
-//         if(month < 10) {
-//             const number = await page.$$eval("#calendar20220" + month + " > div.tbl.typeA.calendal_list > table > tbody > tr", (data) => data.length);
-//             for (let index = 0; index < number; index++) {
-//                 data.push(await getSchedule(page, index + 1, month));
-//                 // 각 줄의 정보를 얻어서 배열에 Push
-//             }
-//         }
-//         else {
-//             const number = await page.$$eval("#calendar2022" + month + " > div.tbl.typeA.calendal_list > table > tbody > tr", (data) => data.length);
-//             for (let index = 0; index < number; index++) {
-//                 data.push(await getSchedule(page, index + 1, month));
-//                 // 각 줄의 정보를 얻어서 배열에 Push
-//             }
-//         }
-//     }
-//     await browser.close();
-//     return data;
-// }
+    for(let month = 1; month <= 12; month++){
+        if(month < 10) {
+            const number = await page.$$eval("#calendar20230" + month + " > div.tbl.typeA.calendal_list > table > tbody > tr", (data) => data.length);
+            for (let index = 0; index < number; index++) {
+                data.push(await getSchedule(page, index + 1, month));
+                // 각 줄의 정보를 얻어서 배열에 Push
+            }
+        }
+        else {
+            const number = await page.$$eval("#calendar2023" + month + " > div.tbl.typeA.calendal_list > table > tbody > tr", (data) => data.length);
+            for (let index = 0; index < number; index++) {
+                data.push(await getSchedule(page, index + 1, month));
+                // 각 줄의 정보를 얻어서 배열에 Push
+            }
+        }
+    }
+    await browser.close();
+    return data;
+}
 
-// async function getSchedule(page, index, month) {
-//     let data = {};
-//     data.month = month;
-//     if(month < 10) {
-//         data.date = await page.$eval("#calendar20220" + month + " > div.tbl.typeA.calendal_list > table > tbody > tr:nth-child(" + index + ") > th", (data) => data.textContent);
-//         data.content = await page.$eval("#calendar20220" + month + " > div.tbl.typeA.calendal_list > table > tbody > tr:nth-child(" + index + ") > td", (data) => data.textContent);
-//     } 
-//     else {
-//         data.date = await page.$eval("#calendar2022" + month + " > div.tbl.typeA.calendal_list > table > tbody > tr:nth-child(" + index + ") > th", (data) => data.textContent);
-//         data.content = await page.$eval("#calendar2022" + month + " > div.tbl.typeA.calendal_list > table > tbody > tr:nth-child(" + index + ") > td", (data) => data.textContent);
-//     }
+async function getSchedule(page, index, month) {
+    let data = {};
+    data.month = month;
+    if(month < 10) {
+        data.date = await page.$eval("#calendar20230" + month + " > div.tbl.typeA.calendal_list > table > tbody > tr:nth-child(" + index + ") > th", (data) => data.textContent);
+        data.content = await page.$eval("#calendar20230" + month + " > div.tbl.typeA.calendal_list > table > tbody > tr:nth-child(" + index + ") > td", (data) => data.textContent);
+    } 
+    else {
+        data.date = await page.$eval("#calendar2023" + month + " > div.tbl.typeA.calendal_list > table > tbody > tr:nth-child(" + index + ") > th", (data) => data.textContent);
+        data.content = await page.$eval("#calendar2023" + month + " > div.tbl.typeA.calendal_list > table > tbody > tr:nth-child(" + index + ") > td", (data) => data.textContent);
+    }
     
-//     return Promise.resolve(data);
-// }
+    return Promise.resolve(data);
+}
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}..`)
