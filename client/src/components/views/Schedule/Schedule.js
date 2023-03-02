@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-//import axios from "axios";
+import axios from "axios";
 import ScheduleApi from '../../api/Schedule.json';
 import "./Schedule.css";
 
@@ -10,17 +10,18 @@ const Schedule = () => {
   const [value, onChange] = useState(new Date());
   const [month, setMonth] = useState(Number(value.getMonth() + 1));
   const [year, setYear] = useState(Number(value.getFullYear()));
-  //const [posts, setPost] = useState([]);
+  const [posts, setPost] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   axios.get(`/api/boards/schedule`).then((response) => {
-  //     console.log(response.data[0]);
-  //     let copy = [...posts, ...response.data];
-  //     setPost(copy);
-  //     setLoading(false);
-  //   });
-  // }, []);
+  useEffect(() => {
+    setLoading(true);
+    axios.get(`/api/boards/schedule`).then((response) => {
+      console.log(response.data[0]);
+      let copy = [...posts, ...response.data];
+      setPost(copy);
+      setLoading(false);
+    });
+  }, []);
 
   const monthChange = (value) => {
     const monthValue = Number(value.activeStartDate.getMonth() + 1);
@@ -59,25 +60,7 @@ const Schedule = () => {
                   </tr>
                 </thead>
                 { year === Number(value.getFullYear()) ? (
-                  <tbody>
-                  {ScheduleApi
-                    .filter((item) => item.month === month)
-                    .map((item, index) => (
-                      <tr key={index}>
-                        <td className="date">{item.date}</td>
-                        <td className="content">{item.content}</td>
-                      </tr>
-                    ))}
-                </tbody> 
-                ): (
-                  <tbody>
-                    <tr>
-                      <td className = "date">{year}.{month}</td>
-                      <td className = "content">해당하는 내용이 없습니다.</td>
-                    </tr>
-                  </tbody>
-                )}
-                {/* <tbody>
+                <tbody>
                   {posts
                     .filter((item) => item.month === month)
                     .map((item, index) => (
@@ -86,7 +69,26 @@ const Schedule = () => {
                         <td className="content">{item.content}</td>
                       </tr>
                     ))}
-                </tbody> */}
+                </tbody> 
+                //   <tbody>
+                //   {ScheduleApi
+                //     .filter((item) => item.month === month)
+                //     .map((item, index) => (
+                //       <tr key={index}>
+                //         <td className="date">{item.date}</td>
+                //         <td className="content">{item.content}</td>
+                //       </tr>
+                //     ))}
+                // </tbody> 
+                ): (
+                  <tbody>
+                    <tr>
+                      <td className = "date">{year}.{month}</td>
+                      <td className = "content">해당하는 내용이 없습니다.</td>
+                    </tr>
+                  </tbody>
+                )}
+                
               </Table>
             </div>
           </div>

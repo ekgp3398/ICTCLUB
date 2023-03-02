@@ -54,7 +54,7 @@ const Header = () => {
                 <NavDropdown.Item href="/BOARD/ISL">ISL</NavDropdown.Item>
                 <NavDropdown.Item href="/BOARD/VENTURE">MCL</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="/Notice">공지사항</Nav.Link>
+              <Nav.Link href="/notice">공지사항</Nav.Link>
               <Nav.Link href="/schedule">학사일정</Nav.Link>
             </Nav>
           { value ? (
